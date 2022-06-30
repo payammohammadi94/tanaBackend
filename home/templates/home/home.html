@@ -28,9 +28,13 @@
 
             <div class="right">
                 <ul class="itemRight">
-                    <a> <li>ثبت نام</li> </a>
-                    <a> <li>ورود</li> </a>                
-                    <a> <li>پروفایل</li> </a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'accounts:profile' %}"> <li>پروفایل</li> </a>
+                        <a href="{% url 'accounts:logout' %}"> <li>خروج</li> </a>
+                    {% else %}
+                    <a href="{% url 'accounts:register' %}"> <li>ثبت نام</li> </a>
+                    <a href="{% url 'accounts:login' %}"> <li>ورود</li> </a>                
+                    {% endif %}
 
                 </ul>
             </div>
