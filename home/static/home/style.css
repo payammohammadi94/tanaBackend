@@ -1,0 +1,294 @@
+
+
+*{
+    margin:0;
+    padding:0;
+    font-family: Sahel;
+}
+
+.header{
+    background-color: black;
+    padding:10px;
+    height: 30%;
+   
+    
+}
+
+.headerUp{
+    display: flex;
+    place-content: space-between;
+    margin: 5px;
+    
+}
+
+.right,.center,.left{
+    color:white
+}
+
+.center h1{
+    font-weight: 200;
+    font-size: 30px;
+}
+
+.itemRight{
+    list-style-type: none;
+    display: flex;
+}
+.itemRight li{
+    color:white;
+    font-size: 18px;
+    font-weight: 200;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.itemRight a{
+    text-decoration: none;
+}
+
+
+.left{
+    width:200px;
+    height: 40px;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left input{
+    border:none;
+    margin-right: 8px;
+    background-color: gray;
+    height: 30px;
+}
+.left input::placeholder{
+    color:white;
+    text-align: center;
+}
+
+.left i{
+    margin-right: 4px;  
+}
+
+/* header Down */
+
+.headerDown{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.itemMenu{
+    color:white;
+    font-size: 30px;
+    font-weight: 500;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+/* slider */
+
+.slidContainer{
+    height: 88vh;
+    background: url('./media/background.jpg');
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 77%); 
+    overflow: hidden;
+}
+
+.slideWrapper{
+    display: flex;
+    width: 400vw;
+    transition: all 1.5s ease-in-out;
+}
+
+.slideItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    position: relative;
+    
+}
+
+
+
+
+/* .slideItem:nth-child(1) .Circule{
+    background-color: rgb(186, 13, 13);
+}
+.slideItem:nth-child(2) .Circule{
+    background-color: rgb(109, 170, 111);
+}
+.slideItem:nth-child(3) .Circule{
+    background-color: rgb(123, 86, 122);
+}
+.slideItem:nth-child(4) .Circule{
+    background-color: rgb(172, 189, 243);
+} */
+
+
+.Circule{
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
+}
+
+.imgItem{
+    width: 500px;
+    height: 500px;
+    z-index: 1;
+}
+
+.discribtion{
+    position: absolute;
+    top: 20%;
+    left: 2%;
+    color: white;
+    font-size: 55px;
+    font-weight: 900;
+    text-align: center;
+    z-index: 1;
+}
+.price{
+    position: absolute;
+    top: 15%;
+    right: 15%;
+    color: white;
+    font-size: 55px;
+    font-weight: 900;
+    text-align: center;
+    z-index: 1;
+}
+
+.slideBTN{
+    z-index: 1;
+    position: absolute;
+    bottom: 30%;
+    right: 10%;
+    width: 240px;
+    height: 60px;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    border:none;
+    cursor: pointer;
+}
+
+.slideBTN:hover{
+    background-color: white;
+    color:black
+}
+
+/* features */
+
+.fetures{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    place-content: space-between;
+    direction: rtl;
+}
+.feture{
+    display: flex;
+    flex-direction: column;
+    padding:20px;
+}
+
+.feture i{
+    font-size: 30px;
+    color: green;
+    text-align: center;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: 400;
+    color: black;
+    text-align: center;
+}
+.discribtionFeatur{
+    font-size: 12px;
+    font-weight: 200;
+    color: gray;
+    text-align: center;
+}
+
+/* Brands */
+
+.Brands{
+    height: 50vh;
+    background-color: #f76262;
+    clip-path: polygon(0 23%, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand{
+    padding:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.brand img{
+    width:70%;
+    margin-top: 30px;
+}
+
+
+/* پیشنهاد محصولات */
+
+.offerContainer{
+    background-color: white;
+   
+}
+
+.offerWrapper{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin:20px;
+    padding: 20px;
+}
+
+.offerItem{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.ImgOffer{
+    width: 300px;
+    height: 400px;
+}
+
+.offerItem h3{
+    margin: 20px;
+}
+
+
+.Etelaiea{
+    height: 5vh;
+    background-color: #c6ea60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.Etelaiea p{
+    font-size: 40px;
+    font-weight: 400;
+    color: white;
+}
+

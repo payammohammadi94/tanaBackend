@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% comment %} برای اضافه کردن فایل های css  {% endcomment %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'accounts/login.css' %}">
+{% endblock CSS %}
+
+{% comment %} برای اضافه کردن فایل های title  {% endcomment %}
+{% block title %}
+    ثبت نام در سایت
+{% endblock title %}
+
+{% comment %} برای اضافه کردن فایل های body  {% endcomment %}
+{% block body %}
+<div class="container">
+    <div class="wrapper">
+        <p  class='Image'>
+            <img src="{% static 'media/1.png' %}" style="width:200px" alt="">
+        </p>
+        <div class="register">
+            <form action="" method="post" class="formRegister">
+                {% csrf_token %}
+
+                <p class='InputText'>
+                    
+                    <input type="text" name="username" placeholder="نام کاربری">
+                </p>
+
+                <p class='InputText'>
+                    
+                    <input type="password" name="password" placeholder="رمز عبور">
+                </p>
+                
+                <div class='buttonParent'>
+                    <button type="submit" class="buttonStyle"> ورود </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

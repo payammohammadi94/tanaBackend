@@ -1,0 +1,187 @@
+.container-detail{
+    
+    direction: rtl;
+}
+.mainDtail{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.imageDetail{
+    display: block;
+}
+
+.main-image{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 450px;
+    height: 450px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+.main-image img{
+    width: 400px;
+    height: 400px;
+}
+.main-image img:hover{
+    transform: scale(1.5);
+}
+
+.galleryImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.galleryImage img{
+    width:100px;
+    height: 100px;
+    margin-right: 20px;
+    border: 1px solid black;
+}
+
+.like-favorite{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.like-favorite p{
+    margin-right: 20px;
+    font-size: 30px;
+}
+
+.iformationDetail{
+    flex: 1;
+    margin-right: 30px;
+    margin-top: 60px;
+}
+
+.nameProduct{
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.feature-product{
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.information-product{
+    margin:10px 15px;
+}
+
+.discount-product span{
+    font-size: 20px;
+    font-weight: 700;
+}
+.discount-product span .percentage{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.title-price{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.unit-price{
+    text-decoration: line-through 3px red;
+    font-size: 25px;
+}
+
+.total-price1{
+    font-size: 30px;
+    font-weight: 500;
+    margin-right: 20px;
+    color:#245d18;
+}
+.total-price2{
+    font-size: 30px;
+    font-weight: 500;
+    color:#245d18;
+}
+
+.size-product{
+    margin-top: 10px;
+}
+
+.size-titel{
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.select-size{
+    width: 80px;
+    text-align: center;
+    height: 40px;
+    background-color: #a4a4a4;
+    border: none;
+    font-size: 18px;
+}
+
+
+.color-product{
+    margin-top: 10px;
+    display: flex;
+}
+.color-titel{
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.color-show{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.color-product ul{
+    list-style-type: none;
+    display: flex;
+}
+.color-product ul li{
+    margin-right: 10px;
+    margin-right: 10px;
+}
+
+.like-product{
+    display: flex;
+}
+
+.like-product h4{
+    text-align: center;
+    margin-right: 5px;
+    margin-top: 3px;
+    font-size: 18px;
+
+    text-decoration: none;
+}
+
+.like-product ul{
+    list-style-type: none;
+    display: flex;
+}
+
+.like-product ul a{
+    color: black;
+    text-decoration: none;
+}
+.like-product ul li{
+    font-size: 25px;
+}
+.like{
+    margin-right: 20px;
+}
+#like1{
+    color: red;
+}
+
+

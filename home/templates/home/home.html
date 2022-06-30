@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load static %}
+    
+    {% block CSS %}
+        <link rel="stylesheet" href="{% static 'home/style.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    {% endblock CSS %}
+    
+    {% block title %}
+        سایت تاناکورای سنندج
+    {% endblock title %}
+    <!-- header -->
+
+
+    {% block body %}
+    <div class="header">
+    
+        <div class="headerUp">
+            
+            <div class="left">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="search">
+            </div>
+
+            <div class="center"><h1>LOGO</h1></div>
+            
+
+
+            <div class="right">
+                <ul class="itemRight">
+                    <a> <li>ثبت نام</li> </a>
+                    <a> <li>ورود</li> </a>                
+                    <a> <li>پروفایل</li> </a>
+
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div class="headerDown">
+            {% for cat in category %}
+               <div class="itemMenu">{{cat.name}}</div>
+            {% endfor %}
+                <a style="text-decoration:none;" href="{% url 'home:products_show' %}"><div class="itemMenu">تمامی محصولات</div></a>
+
+        </div>
+    </div>
+
+
+    
+    <div class="slidContainer">
+        <div class="slideWrapper">
+           {% for cat in  category%}
+                <div class="slideItem">
+                    <div class="Circule" style="background-color:{{cat.color}}"></div>
+                    <img src="{{cat.photo.url}}" alt="logo" class='imgItem'>
+                    <h1 class="discribtion">The Best Brand <br /> New <br /> Best Price</h1>
+                    <h2 class="price">50&#x25 <br />OFF</h2>
+                    <a style="text-decoration:none;" href="{% url 'home:category_show' cat.id %}"><button class="slideBTN">نمایش محصولات</button></a>
+                </div>
+           {% endfor %} 
+        </div>
+    </div>
+
+    
+    <div class="fetures">
+        <div class="feture">
+            <i class="bi bi-send"></i>
+            <span class="title">ارسال رایگان</span>
+            <span class="discribtionFeatur">با خرید بیش از ۴۰۰هزار تومان ارسال محصولات رایگان می‌باشد.</span>
+        </div>
+
+        <div class="feture">
+            <i class="bi bi-gift"></i>
+            <span class="title">هدیه</span>
+            <span class="discribtionFeatur">
+                با خرید بیش از ۲ میلیون تومان ۳۰۰ هزار تخفیف بگیرید.
+            </span>
+
+        </div>
+        <div class="feture">
+            <i class="bi bi-balloon-heart"></i>
+            <span class="title">معرفی به دوستان</span>
+            <span class="discribtionFeatur">
+                با ثبت نام دوستانتان با کد معرف شما در سایت از هر خرید آن‌ها شما می‌توانید تخفیف بگیرید.
+            </span>
+        </div>
+    </div>
+
+    <div class="Brands">
+        <div class="brand">
+            <img src="{{tablighat.poster.url}}" alt="">
+        </div>
+    </div>
+
+    <div class="offerContainer">
+        <div class="offerWrapper">
+            <div class="offerItem">
+                <img src="./image/jeensOffer4.jpg" alt="" class="ImgOffer">
+                <h3>پرفروش‌ترین شلوار‌ها</h3>
+            </div>
+            <div class="offerItem">
+                <h3>پرتخفیف‌ترین شلوار‌ها</h3>
+                <img src="./image/jeensOffer2.jpeg" alt="" class="ImgOffer">
+            </div>
+            <div class="offerItem">
+                <img src="./image/jeensOffer3.webp" alt="" class="ImgOffer">
+                <h3>پرطرفدارترین شلوار‌ها</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="Etelaiea">
+        <p> تخفیفات ویژه  </p>
+    </div>
+
+    <div class="offerContainer">
+        <div class="offerWrapper">
+            <div class="offerItem">
+                <img src="./image/jeensOffer4.jpg" alt="" class="ImgOffer">
+                <h3>پرفروش‌ترین شلوار‌ها</h3>
+            </div>
+            <div class="offerItem">
+                <h3>پرتخفیف‌ترین شلوار‌ها</h3>
+                <img src="./image/jeensOffer2.jpeg" alt="" class="ImgOffer">
+            </div>
+            <div class="offerItem">
+                <img src="./image/jeensOffer3.webp" alt="" class="ImgOffer">
+                <h3>پرطرفدارترین شلوار‌ها</h3>
+            </div>
+        </div>
+    </div>
+    <div class="Etelaiea">
+        <p> تخفیفات ویژه  </p>
+    </div>
+
+    <div class="offerContainer">
+        <div class="offerWrapper">
+            <div class="offerItem">
+                <img src="./image/jeensOffer4.jpg" alt="" class="ImgOffer">
+                <h3>پرفروش‌ترین شلوار‌ها</h3>
+            </div>
+            <div class="offerItem">
+                <h3>پرتخفیف‌ترین شلوار‌ها</h3>
+                <img src="./image/jeensOffer2.jpeg" alt="" class="ImgOffer">
+            </div>
+            <div class="offerItem">
+                <img src="./image/jeensOffer3.webp" alt="" class="ImgOffer">
+                <h3>پرطرفدارترین شلوار‌ها</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="Etelaiea">
+        <p> تخفیفات ویژه  </p>
+    </div>
+
+    <div class="offerContainer">
+        <div class="offerWrapper">
+            <div class="offerItem">
+                <img src="./image/jeensOffer4.jpg" alt="" class="ImgOffer">
+                <h3>پرفروش‌ترین شلوار‌ها</h3>
+            </div>
+            <div class="offerItem">
+                <h3>پرتخفیف‌ترین شلوار‌ها</h3>
+                <img src="./image/jeensOffer2.jpeg" alt="" class="ImgOffer">
+            </div>
+            <div class="offerItem">
+                <img src="./image/jeensOffer3.webp" alt="" class="ImgOffer">
+                <h3>پرطرفدارترین شلوار‌ها</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'home/app.js' %}">
+    </script>
+
+    {% endblock body %}

@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% comment %} برای اضافه کردن فایل های css  {% endcomment %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'accounts/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/sidebars.css' %}">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+{% endblock CSS %}
+
+{% comment %} برای اضافه کردن فایل های title  {% endcomment %}
+{% block title %}
+    پروفایل
+{% endblock title %}
+
+{% comment %} برای اضافه کردن فایل های body  {% endcomment %}
+{% block body %}
+<div class="container">
+
+    <div class="header" >
+            <div class="info">     
+                    <div class="title">
+                        <h1 >{{profile.user.get_full_name}}</h1>
+                        <h3 >{{profile.user.username}}</h1>
+                    </div>
+                    <img src="https://www.stockvault.net/data/2019/09/02/269196/preview16.jpg" alt="" class="profileImage"> 
+            </div>
+    </div>
+    <div class="body-style">
+        <div class="Row">
+            <div>
+                <ul class="informationBuy">
+                    <li>
+                        <h3>{{profile.referer}}</h3>
+                        <span>کد معرف</span>
+                    </li>
+                    <li>
+                        <h3>{{number_of_referer}}</h3>
+                        <span>زیر مجموعه</span>
+                    </li>
+                    <li>
+                        <h3>۱۰۰</h3>
+                        <span>تعداد محصول پسندیده</span>
+                    </li>
+                    <li>
+                        <h3>۵</h3>
+                        <span>محصولات مورد علاقه</span>
+                    </li>
+
+                </ul>     
+            </div>
+            
+            <div>
+                <a href="{% url "accounts:edite_profile" %}" class='TagA'><button class="BTN">ویرایش اطلاعات</button></a>
+            </div>
+        </div>
+        <hr style="margin-top:30px"/>
+
+
+        <div class="productBuy">
+            <div class="productBuyTItle"><h1> محصولات مورد علاقه</h1></div>
+            <div class="productItem">
+                <div class="infoItem">
+                    <p><span>لباس زیبا</span></p>
+                    <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/RS5803_160879793-low.jpg" alt="">
+                </div>
+                <div class="infoItem">
+                    <p></p>
+                    <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/RS5803_160879793-low.jpg" alt="">
+                </div>
+                <div class="infoItem">
+                    <p></p>
+                    <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/RS5803_160879793-low.jpg" alt="">
+                </div>
+
+        </div>
+
+        <hr class="HR"/>
+
+        <div class="productBuy">
+            <div class="productBuyTItle"><h1> محصولات خریداری شده</h1></div>
+            
+            <div class="productItem">
+                
+                <div class="infoItem">
+                    <p>محصول بسیار زیبا</p>
+                    <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/RS5803_160879793-low.jpg" alt="">
+                </div>
+                <div class="infoItem">
+                    <p>محصول بسیار زیبا</p>
+                    <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/RS5803_160879793-low.jpg" alt="">
+                </div>
+                <div class="infoItem">
+                    <p>محصول بسیار زیبا</p>
+                    <img src="https://learnenglish.britishcouncil.org/sites/podcasts/files/RS5803_160879793-low.jpg" alt="">
+                </div>
+        </div>
+        
+        <hr class="HR"/>
+    </div>
+</div>
+<script src="{% static 'accounts/sidebars.js'%}"></script>
+{% endblock body %}

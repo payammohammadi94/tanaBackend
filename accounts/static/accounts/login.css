@@ -1,0 +1,98 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+
+.container{
+    width:100vw;
+    height:100vh;
+    background:linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)), url("../media/login2.jpg") center;
+    display:flex;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper{
+    border: 2px #e3d8cb0a solid;
+    padding: 25px;
+    background-color: rgb(208, 217, 203);
+    position: relative;
+    left: 300px;
+    border-radius: 10%;
+  
+}
+
+.register {
+    display: flex;
+}
+
+.formRegister{
+
+}
+
+.Image{
+    display: flex;
+    justify-content: center;
+}
+
+.InputText {
+    margin-bottom: 10px;
+}
+
+.InputText input{
+    text-align: center;
+    height: 30px;
+    width: 300px;
+    background-color: #d6d6ce;;
+    color:black
+}
+.buttonParent{
+    display: flex;
+    justify-content: center;
+}
+
+.buttonStyle{
+    width: 41%;
+height: 2.5rem;
+background-color: #1c1a1a;
+color: wheat;
+
+}
+
+@media only screen and (max-width: 450px) {
+    *{
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+    }
+
+    .wrapper{
+        border: 2px #e3d8cb0a solid;
+        padding: 25px;
+        background-color: rgb(208, 217, 203,.51);
+        position: relative;
+        left: 0px;
+        border-radius: 10%;
+      
+    }
+    .InputText input{
+        width: 170px;
+    }
+  }
+
+
+  @media only screen and (min-width: 450px) and (max-width: 900px) {
+
+    .wrapper{
+        border: 2px #e3d8cb0a solid;
+        padding: 25px;
+        background-color: rgb(208, 217, 203,.51);
+        position: relative;
+        left: 0px;
+        border-radius: 10%;
+      
+    }
+  }

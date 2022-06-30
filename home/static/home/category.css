@@ -1,0 +1,117 @@
+
+
+.productContainer{
+    background-color: #F7ECDE;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+.productItem{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E9DAC1;
+    padding:10px;
+    position: relative;
+    height: 300px;
+    min-width: 250px;
+    max-width: 250px;
+    margin: 5px;
+    
+}
+
+.productCircle{
+    margin: 5px;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #18978F;
+    z-index: 0;
+}
+
+.discount-class{
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    background-color: #54BAB9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    color: red;
+}
+
+.image-class{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.productImage{
+    
+    width: 200px;
+    height: 200px;
+    z-index: 1;
+    text-align: center;
+}
+.productInformation{
+    position: absolute;
+    z-index: 1;
+    background-color: #CC527A;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.productInformation:hover{
+    opacity: 1;
+    background-color: rgba(37, 35, 35, 0.5);
+}
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    position: absolute;
+    
+}
+
+.icons li{
+    margin-right: 20px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+
+}
+
+.icons li:hover{
+    transform: scale(1.5);
+}
+
+.priceProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    position: absolute;
+    bottom: 13%;
+    margin-left:25px;
+   
+}
+.priceProduct li{
+    margin-right: 30px;
+    color: white;
+}

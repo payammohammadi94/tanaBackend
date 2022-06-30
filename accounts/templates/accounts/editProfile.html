@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}ویرایش پروفایل{% endblock title %}
+
+
+{% block CSS %}
+
+{% endblock CSS %}
+
+
+
+{% block body %}
+    <form method='post'> 
+        {% csrf_token %}
+        {{userForm.as_p}}
+    {{profileForm.as_p}}
+    <button type="submit">ثبت ویرایش</button>
+    </form>
+{% endblock body %}

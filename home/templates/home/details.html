@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'home/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+{% endblock CSS %}
+
+{% block title %}
+    {{product.name}}
+{% endblock title %}
+
+{% block body %}
+<div class='container-detail'>
+    <div class="mainDtail">
+
+        <div class="imageDetail">
+        
+            <div class="main-image">
+                <img src="{{product.image.url}}" alt="">
+            </div>
+        
+            <div class="galleryImage">
+                {% for imagePro in imageProduct %}
+                    <img src="{{imagePro.image.url}}" alt="" >
+                {% endfor %}
+            </div>
+
+        </div>
+
+
+        <div class="iformationDetail">
+            <h1 class="nameProduct">{{product.name}}</h1>
+            <h2 class='feature-product'>ویژگی محصول:</h2>
+            <div class="information-product">{{product.information|safe}}</div>
+            {% if product.discount %}
+            <h5 class="discount-product">
+                <span>تخفیف: </span> <span class='percentage'>{{product.discount}}&#x25</span>
+            </h5>
+            {% endif %}
+
+            <div class="price-product">
+                <span class='title-price'>قیمت: </span>
+
+                {% if product.discount %}
+                    <span class="unit-price">{{product.unit_price}}</span>
+                    <span class="total-price1">{{product.total_price}} تومان</span>
+                
+                {% else %}
+                    <span class="total-price2">{{product.total_price}} تومان</span>
+                {% endif %}
+    
+                
+                
+            </div>
+
+            <div class="size-product">
+                <span class='size-titel'>سایز: </span>
+                <select class='select-size' name="" id="">
+                    <option value="">35</option>
+                    <option value="">36</option>
+                    <option value="">37</option>
+                    <option value="">XXL</option>
+                </select>
+            </div>
+
+            <div class="color-product">
+                <span class='color-titel'>رنگ: </span>
+                <ul >
+                    <li class="color-show" style='background-color:green'> </li>
+                    <li class="color-show" style='background-color:red'> </li>
+                </ul>   
+            </div>
+            <div class="like-product">
+                <ul >
+                {% if favorited %}
+                    <a href="{% url 'home:favorite_show' product.id %}"> <li class='favorite' id='fav1' style='color:gold;'><i class="bi bi-star-fill"></i></li></a>
+                
+                {% else %}
+                    <a href="{% url 'home:favorite_show' product.id %}"><li class="favorite" id='fav2'><i class="bi bi-star"></i></li></a>
+                {% endif %}
+
+                    {% if liked %}
+                        <a href="{% url 'home:like_show' product.id %}"> <li class='like' id='like1'><i class="bi bi-heart-fill"></i></li></a>
+                    {% else %}
+
+                        <a href="{% url 'home:like_show' product.id %}"><li class="like" id='like2'><i class="bi bi-heart"></i></li></a>
+                    {% endif %}
+
+                    
+                </ul>   
+                <h4>{{product.total_like}}</h4>
+            </div>  
+            
+
+            <div class="Cart"></div>
+        </div>
+    </div>
+    <div class="similarProduct"></div>
+    <div class="commentProduct"></div>
+</div>
+
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+<script>
+    tippy('#like1', {
+        content: 'این محصول را پسندیده‌ام',
+      });
+    tippy('#like2', {
+        content: 'این محصول را می‌پسندم',
+      });
+    
+    tippy('#fav1', {
+        content: 'به علاقه‌مندی‌ها اضافه شده است',
+      });
+
+    tippy('#fav2', {
+        content: 'اضافه کردن به علاقه‌مندی‌ها',
+      });
+
+
+</script>
+{% endblock body %}
