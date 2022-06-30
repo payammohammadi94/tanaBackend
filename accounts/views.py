@@ -23,7 +23,7 @@ def register(request):
                 profile_ref = Profile.objects.filter(referer=data['referer'])
                 if profile_ref.exists():
                     profile_ref[0].user_use_referer.add(user)
-                    profile_ref.save()
+                    
             
             return redirect('accounts:login')
         else:

@@ -8,7 +8,7 @@
 .container{
     width:100vw;
     height:100vh;
-    background:linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.2)), url("../media/clothing.jpg") center;
+    background:linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.2)), url("./media/clothing.jpg") center;
     display:flex;
     background-size: cover;
     align-items: center;

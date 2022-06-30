@@ -8,7 +8,7 @@
 .container{
     width:100vw;
     height:100vh;
-    background:linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)), url("../media/login2.jpg") center;
+    background:linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)), url("./media/login2.jpg") center;
     display:flex;
     background-size: cover;
     align-items: center;
