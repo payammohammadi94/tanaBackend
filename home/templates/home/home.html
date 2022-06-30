@@ -28,9 +28,15 @@
 
             <div class="right">
                 <ul class="itemRight">
-                    <a> <li>ثبت نام</li> </a>
-                    <a> <li>ورود</li> </a>                
-                    <a> <li>پروفایل</li> </a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'home:home_show' %}"> <li>خانه</li> </a>
+                        <a href="{% url 'accounts:profile' %}"> <li>پروفایل</li> </a>
+                        <a href="{% url 'accounts:logout' %}"> <li>خروج</li> </a>
+                    {% else %}
+                    <a href="{% url 'home:home_show' %}"> <li>خانه</li> </a>
+                    <a href="{% url 'accounts:register' %}"> <li>ثبت نام</li> </a>
+                    <a href="{% url 'accounts:login' %}"> <li>ورود</li> </a>                
+                    {% endif %}
 
                 </ul>
             </div>
@@ -97,15 +103,15 @@
     <div class="offerContainer">
         <div class="offerWrapper">
             <div class="offerItem">
-                <img src="./image/jeensOffer4.jpg" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer4.jpg' %}" alt="" class="ImgOffer">
                 <h3>پرفروش‌ترین شلوار‌ها</h3>
             </div>
             <div class="offerItem">
                 <h3>پرتخفیف‌ترین شلوار‌ها</h3>
-                <img src="./image/jeensOffer2.jpeg" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer2.jpeg' %}" alt="" class="ImgOffer">
             </div>
             <div class="offerItem">
-                <img src="./image/jeensOffer3.webp" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer3.webp' %}" alt="" class="ImgOffer">
                 <h3>پرطرفدارترین شلوار‌ها</h3>
             </div>
         </div>
@@ -118,15 +124,15 @@
     <div class="offerContainer">
         <div class="offerWrapper">
             <div class="offerItem">
-                <img src="./image/jeensOffer4.jpg" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer4.jpg' %}" alt="" class="ImgOffer">
                 <h3>پرفروش‌ترین شلوار‌ها</h3>
             </div>
             <div class="offerItem">
                 <h3>پرتخفیف‌ترین شلوار‌ها</h3>
-                <img src="./image/jeensOffer2.jpeg" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer2.jpeg' %}" alt="" class="ImgOffer">
             </div>
             <div class="offerItem">
-                <img src="./image/jeensOffer3.webp" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer3.webp' %}" alt="" class="ImgOffer">
                 <h3>پرطرفدارترین شلوار‌ها</h3>
             </div>
         </div>
@@ -138,15 +144,15 @@
     <div class="offerContainer">
         <div class="offerWrapper">
             <div class="offerItem">
-                <img src="./image/jeensOffer4.jpg" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer4.jpg' %}" alt="" class="ImgOffer">
                 <h3>پرفروش‌ترین شلوار‌ها</h3>
             </div>
             <div class="offerItem">
                 <h3>پرتخفیف‌ترین شلوار‌ها</h3>
-                <img src="./image/jeensOffer2.jpeg" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer2.jpeg' %}" alt="" class="ImgOffer">
             </div>
             <div class="offerItem">
-                <img src="./image/jeensOffer3.webp" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer3.webp' %}" alt="" class="ImgOffer">
                 <h3>پرطرفدارترین شلوار‌ها</h3>
             </div>
         </div>
@@ -159,15 +165,15 @@
     <div class="offerContainer">
         <div class="offerWrapper">
             <div class="offerItem">
-                <img src="./image/jeensOffer4.jpg" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer4.jpg' %}" alt="" class="ImgOffer">
                 <h3>پرفروش‌ترین شلوار‌ها</h3>
             </div>
             <div class="offerItem">
                 <h3>پرتخفیف‌ترین شلوار‌ها</h3>
-                <img src="./image/jeensOffer2.jpeg" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer2.jpeg' %}" alt="" class="ImgOffer">
             </div>
             <div class="offerItem">
-                <img src="./image/jeensOffer3.webp" alt="" class="ImgOffer">
+                <img src="{% static 'home/image/jeensOffer3.webp' %}" alt="" class="ImgOffer">
                 <h3>پرطرفدارترین شلوار‌ها</h3>
             </div>
         </div>

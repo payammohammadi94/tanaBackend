@@ -92,7 +92,7 @@
 
 .slidContainer{
     height: 88vh;
-    background: url('./media/background.jpg');
+    background: url('./image/background.jpg');
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 77%); 
     overflow: hidden;
 }

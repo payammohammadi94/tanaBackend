@@ -27,7 +27,7 @@ def register(request):
             
             return redirect('accounts:login')
         else:
-            messages.error(request, 'ثبت نام انجام نشد.')
+            return redirect('accounts:register')
     else:
         form = RegisterForm()
         
@@ -47,7 +47,7 @@ def login_show(request):
             if user is not None:
                 login(request,user)
                 messages.success(request, 'ورود با موفقیت انجام شد.')
-                return redirect('home:products')
+                return redirect('home:home_show')
             
             else:
                 return redirect('accounts:register')
@@ -62,7 +62,7 @@ def login_show(request):
 def logout_show(request):
     logout(request)
     messages.success(request, 'شما از سایت خارج شدید.')
-    return redirect('home:products')
+    return redirect('home:home_show')
 
 
 @login_required(login_url='/accounts/login/')

@@ -12,39 +12,41 @@
 
 {% block body %}
 
-<div class="header">
+    <div class="header">
     
-    <div class="headerUp">
-        
-        <div class="left">
-            <i class="bi bi-search"></i>
-            <input type="text" placeholder="search">
+        <div class="headerUp">
+            
+            <div class="left">
+                <i class="bi bi-search"></i>
+                <input type="text" placeholder="search">
+            </div>
+
+            <div class="center"><h1>LOGO</h1></div>
+            
+
+
+            <div class="right">
+                <ul class="itemRight">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'home:home_show' %}"> <li>خانه</li> </a>
+                        <a href="{% url 'accounts:profile' %}"> <li>پروفایل</li> </a>
+                        <a href="{% url 'accounts:logout' %}"> <li>خروج</li> </a>
+                    {% else %}
+                    <a href="{% url 'home:home_show' %}"> <li>خانه</li> </a>
+                    <a href="{% url 'accounts:register' %}"> <li>ثبت نام</li> </a>
+                    <a href="{% url 'accounts:login' %}"> <li>ورود</li> </a>                
+                    {% endif %}
+
+                </ul>
+            </div>
         </div>
 
-        <div class="center"><h1>LOGO</h1></div>
-        
 
 
-        <div class="right">
-            <ul class="itemRight">
-                <a> <li>ثبت نام</li> </a>
-                <a> <li>ورود</li> </a>                
-                <a> <li>پروفایل</li> </a>
-                <a href="{% url "home:home_show" %}"> <li>خانه</li> </a>
-
-            </ul>
+        <div class="headerDown">
+            فیلترها
         </div>
     </div>
-
-
-
-    <div class="headerDown">
-        
-            <div class="itemMenu">فیلترها</div>
-        
-
-    </div>
-</div>
 
 
 <div class="productContainer">
