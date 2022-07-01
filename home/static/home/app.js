@@ -3,8 +3,10 @@ let itemMenu = document.querySelectorAll('.itemMenu')
 
 itemMenu.forEach((item,index)=>{
     
-    item.addEventListener("click",()=>{
+    item.addEventListener("mouseover",()=>{
+        console.log(wrapper)
         wrapper.style.transform = `translateX(${-100*index}vw)`
 
     })
 })
+

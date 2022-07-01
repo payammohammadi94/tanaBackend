@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block CSS %}
     <link rel="stylesheet" href="{% static 'home/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'home/products.css' %}">
     <link rel="stylesheet" href="{% static 'home/style.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-{% endblock CSS %}
+
+    {% endblock CSS %}
 
 {% block title %}
     {{product.name}}
@@ -12,9 +15,8 @@
 
 {% block body %}
 
-
-    <div class="header">
-    
+    <div class="header">    
+        
         <div class="headerUp">
             
             <div class="left">
@@ -40,11 +42,12 @@
 
                 </ul>
             </div>
+
         </div>
 
 
 
-        <div class="headerDown">
+        <div class="headerDown" style='color:white'>
             فیلترها
         </div>
     </div>
@@ -56,12 +59,13 @@
         <div class="imageDetail">
         
             <div class="main-image">
-                <img src="{{product.image.url}}" alt="">
+                <img src="{{product.image.url}}" alt="" id="mainImageShow">
             </div>
         
             <div class="galleryImage">
+                <img src="{{product.image.url}}" alt="" class="thumbImage">
                 {% for imagePro in imageProduct %}
-                    <img src="{{imagePro.image.url}}" alt="" >
+                    <img src="{{imagePro.image.url}}" alt="" class='thumbImage'>
                 {% endfor %}
             </div>
 
@@ -78,6 +82,10 @@
             </h5>
             {% endif %}
 
+            <h5 class="discount-product">
+                <span>موجودی محصول: </span> <span class='percentage'>{{product.amount}} عدد</span>
+            </h5>
+
             <div class="price-product">
                 <span class='title-price'>قیمت: </span>
 
@@ -93,23 +101,25 @@
                 
             </div>
 
-            <div class="size-product">
-                <span class='size-titel'>سایز: </span>
-                <select class='select-size' name="" id="">
-                    <option value="">35</option>
-                    <option value="">36</option>
-                    <option value="">37</option>
-                    <option value="">XXL</option>
-                </select>
+            <div class="color-size-product">
+    
+                <div class="colors">
+                    <span> رنگ‌بندی: </span>
+                    <ul class='color-ul'>
+                        <li style='background-color:red'></li>  
+                        <li style='background-color:green'></li>  
+                    </ul>
+                </div>
+            
+                <div class="sizes">
+                    <span>سایز: </span>
+                    <select name="" id="">
+                        <option value="">38</option>
+                        <option value="">39</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="color-product">
-                <span class='color-titel'>رنگ: </span>
-                <ul >
-                    <li class="color-show" style='background-color:green'> </li>
-                    <li class="color-show" style='background-color:red'> </li>
-                </ul>   
-            </div>
             <div class="like-product">
                 <ul >
                 {% if favorited %}
@@ -135,13 +145,166 @@
             <div class="Cart"></div>
         </div>
     </div>
-    <div class="similarProduct"></div>
-    <div class="commentProduct"></div>
+
+
+{% comment %} محصولات مشابه {% endcomment %}
+{% if similar %}
+    <br />
+    <br />
+    <div class='title'>
+        <h4>محصولات مشابه</h4>
+    </div>
+    <div style='position:relative'>
+        <div class='back' onclick="leftChangePosition()"><i class="bi bi-caret-right" style='font-size:20px'></i></div>
+        <div class='next' onclick="rightChangePosition()"><i class="bi bi-caret-left" style='font-size:20px'></i></div>
+        
+        <div class='similarProductWrapper'>
+            {% for sim in similar %}
+            <div class="productItem">
+                <div class="productCircle"></div>
+                {% if sim.discount %}
+                    <div class='discount-class'>{{sim.discount}}&#x25</div>
+                {% endif %}
+                <div class="image-class">
+                    <img src="{{sim.image.url}}" alt="logo" class="productImage">
+                </div>
+                
+                <div class="productInformation">
+                    <ul class='icons'>
+                        <a href="#"><li><i class="bi bi-star"></i></li></a>
+                        <a href="{% url 'home:detail_show' sim.id %}"><li><i class="bi bi-search"></i></li></a>
+                    </ul>
+
+                    <ul class='priceProduct'>
+                        <li>{{sim.total_price}}T</li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endif %}
+
+
+
+<br />
+<br />
+
+{% comment %} نظرات {% endcomment %}
+    <div class='title'>
+        <h4>امتیاز و دیدگاه کاربران</h4>
+    </div>
+    <div class="commentProduct">
+        <div class='comments'>
+            <form method="post" action="{% url 'home:comment_show' product.id%}">
+                {% csrf_token %}
+                
+                <ul class="commentsStarRate">
+                    <li class='starRate'><i class="bi bi-star-fill"></i></li>
+                    <li class='starRate'><i class="bi bi-star-fill"></i></li>
+                    <li class='starRate'><i class="bi bi-star-fill"></i></li>
+                    <li class='starRate'><i class="bi bi-star-fill"></i></li>
+                    <li class='starRate'><i class="bi bi-star-fill"></i></li>
+                </ul>
+
+                <input type='text' value='1' name='rate' style='display:none' id='rateInput'>
+                
+                <textarea rows="5" cols="30" name="comment" class="commentField" placeholder='نظر شما در مورد این محصول ...'></textarea>
+                
+                <div class='BTNComment'>
+                    <button type="submit">ارسال نظر</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class='showCommentCantainer'>
+        <div class="showCommentWrapper">
+            {% for comm in commentShow %}
+            <div class="showCommentItem">
+                <div class='infoUserComment'>
+                    <h4>{{comm.user.username}}</h4>
+                    <h5 style='direction:ltr'>{{comm.create|naturaltime}}</h5>
+                </div>
+                <div class='UserComment'>
+                    {{comm.comment}}
+                </div>
+                
+                <div class='UserCommentFooter'>
+                    <span><i class="bi bi-reply"></i></span>
+                    <a style="text-decoration:none" href="{% url 'home:likeComment_show' comm.id %}"><span style='color:black' ><i class="bi bi-hand-thumbs-up"></i></span></a>
+                    <span style='margin-right:-1px'>{{comm.total_like}}</span>
+                </div>
+
+            </div>
+            {% endfor %} 
+        </div>
+    </div>
+    
 </div>
+
+
 
 <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
 <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
 <script>
+      
+      let thumbImage = document.querySelectorAll('.thumbImage')
+      let mainImage = document.querySelector('#mainImageShow')
+      
+      thumbImage.forEach((item,index)=>{
+          item.addEventListener('mouseover',()=>{
+              mainImage.src = item.src
+              let activeClass = document.querySelectorAll('.active')
+              if (activeClass.length>0){
+                  activeClass[0].classList.remove('active')
+                }
+            item.classList.add("active"); 
+        })
+      })
+
+      
+      let leftChangePosition=()=>{
+          
+          
+        let wrapp = document.querySelector('.similarProductWrapper')
+        wrapp.scrollLeft += 100
+        
+        }
+
+      let rightChangePosition=()=>{
+
+          let wrapp = document.querySelector('.similarProductWrapper')
+          
+          wrapp.scrollLeft -= 100
+        
+        }
+
+
+        //برای امتیاز ستاره ای
+        let Stars = document.querySelectorAll('.starRate') 
+        let Rate = document.querySelector('#rateInput') 
+        
+        Stars.forEach((item,index)=>{
+            item.addEventListener('click',()=>{
+                
+                //اول تمام ستاره ها را حذف میکند 
+                Array.from(Stars).slice(0).forEach((item,index)=>{
+                    item.classList.remove('starRateActive')
+                    Rate.value = 1
+
+                })
+        //بعد ستاره ها را اضافه میکنیم
+                Array.from(Stars).slice(0,index+1).forEach((item,index)=>{
+                    item.classList.add('starRateActive')
+                    Rate.value = index+1
+
+                })
+            })
+        })
     tippy('#like1', {
         content: 'این محصول را پسندیده‌ام',
       });
@@ -156,7 +319,5 @@
     tippy('#fav2', {
         content: 'اضافه کردن به علاقه‌مندی‌ها',
       });
-
-
 </script>
 {% endblock body %}

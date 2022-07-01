@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'home.apps.HomeConfig',
     'ckeditor',
- 
+    'taggit',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,7 @@ CKEDITOR_CONFIGS = {
       'width':'500'
     },
 }
+
+
+TAGGIT_CASE_INSENSITIVE = True
+TAGGIT_STRIP_UNICODE_WHEN_SLUGIFYING=True

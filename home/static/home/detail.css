@@ -47,6 +47,14 @@
     border: 1px solid black;
 }
 
+.thumbImage{
+    opacity: .5;
+}
+
+.active{
+    opacity: 1;
+}
+
 .like-favorite{
     display: flex;
     justify-content: center;
@@ -77,6 +85,7 @@
 .information-product{
     margin:10px 15px;
 }
+
 
 .discount-product span{
     font-size: 20px;
@@ -109,47 +118,45 @@
     color:#245d18;
 }
 
-.size-product{
-    margin-top: 10px;
-}
-
-.size-titel{
-    font-size: 25px;
-    font-weight: 400;
-}
-
-.select-size{
-    width: 80px;
-    text-align: center;
-    height: 40px;
-    background-color: #a4a4a4;
-    border: none;
-    font-size: 18px;
-}
 
 
-.color-product{
-    margin-top: 10px;
+.color-size-product{
     display: flex;
 }
-.color-titel{
-    font-size: 25px;
-    font-weight: 400;
+
+.colors{
+    display: flex;
 }
 
-.color-show{
-    width: 30px;
-    height: 30px;
+.colors span{
+    font-size:22px;
+    font-weight: 600;
+}
+.color-ul{
+    display: flex;
+    list-style-type: none;
+    margin-top: 9px;
+}
+.color-ul li{
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     cursor: pointer;
 }
-.color-product ul{
-    list-style-type: none;
-    display: flex;
+
+.sizes{
+    margin-right: 20px;
 }
-.color-product ul li{
-    margin-right: 10px;
-    margin-right: 10px;
+.sizes span{
+    font-size:22px;
+    font-weight: 600;
+}
+
+.sizes select{
+    width: 80px;
+    height: 2rem;
+    text-align: center;
 }
 
 .like-product{
@@ -174,14 +181,182 @@
     color: black;
     text-decoration: none;
 }
+
 .like-product ul li{
     font-size: 25px;
 }
+
 .like{
-    margin-right: 20px;
+    margin:2px 20px 0px 0px;
 }
 #like1{
     color: red;
 }
 
 
+
+.similarProductWrapper{
+    display: flex;
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    background-color: #F7ECDE;
+    transition: all 1.5s ease-in-out;
+    padding:20px 40px;
+    
+}
+
+.next{
+    
+    position: absolute;
+    text-align: center;
+    left: 1%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    
+}
+.back{
+    position: absolute;
+    text-align: center;
+    right: 1%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(0,0,0,.5);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    
+}
+
+.productItem{
+    margin-right: 10px;
+}
+
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.commentsStarRate{
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    text-align: center;
+}
+
+.commentsStarRate li{
+    margin-right:3px
+}
+
+.starRateActive{
+    color: gold;
+}
+
+.commentProduct{
+    width: 100%;
+    background-color: #F7ECDE;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+.comments{
+    width: 300px;
+    height: 300px;
+    background-color: #E9DAC1;
+    margin-right: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.commentField{
+    margin:10px 0px;
+    -webkit-box-shadow: -2px 3px 19px 14px rgba(0,0,0,0.24); 
+    box-shadow: -2px 3px 19px 14px rgba(0,0,0,0.24);
+    background-color: #F1FFFE;
+    text-align: center;
+}
+.commentField::placeholder{
+    color: black;
+}
+
+.BTNComment{
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+
+.BTNComment button{
+    width: 100px;
+    height: 2rem;
+}
+
+.showCommentCantainer{
+    background-color: #F7ECDE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.showCommentWrapper{
+    width: 60%;
+    background-color: gray;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.showCommentItem{
+    margin:5px 10px 0px 0px;
+    background-color: #d8d6d6;
+    padding: 25px;
+    border-right: 2px solid black; 
+    width:60%
+}
+
+.infoUserComment{
+    display: flex;
+    place-content: space-between;
+}
+.UserComment{
+    margin:10px 10px 0px 0px ;
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.UserCommentFooter{
+    display: flex;
+    float: left;
+    margin-top: -12px;
+
+    
+}
+.UserCommentFooter span{
+    font-size: 20px;
+    margin-right: 20px;
+}

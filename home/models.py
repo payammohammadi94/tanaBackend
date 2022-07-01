@@ -2,6 +2,7 @@ from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -75,6 +76,8 @@ class Product(models.Model):
     
     #تعداد بازدید از محصول
     total_view = models.IntegerField(default=1)
+    #برای نمایش محصولات مشابه
+    tags = TaggableManager(blank=True)
     
     @property
     def total_price(self):
@@ -160,7 +163,7 @@ class ImageGallery(models.Model):
     
 #مدل برای کامنت و رای
 class Comment(models.Model):
-    
+    user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     comment = models.TextField(blank=True,null=True)
     rate = models.IntegerField(default=1)
@@ -170,10 +173,13 @@ class Comment(models.Model):
     
         #وقتی کاربر لایک میکند ما میتوانیم آن را ثبت کنیم
     is_like = models.ManyToManyField(User,blank=True,related_name='likeComment')
-    total_like = models.IntegerField(default=0)
+    total_like = models.IntegerField(default=0,blank=True,null=True)
     
     def __str__(self):
         return self.product.name
+    
+    def total_like(self):
+        return self.is_like.count()
     
 
     
