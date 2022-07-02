@@ -52,6 +52,7 @@
         </div>
     </div>
 
+    
 <div class='container-detail'>
     
     <div class="mainDtail">
@@ -90,8 +91,8 @@
                 <span class='title-price'>قیمت: </span>
 
                 {% if product.discount %}
-                    <span class="unit-price">{{product.unit_price}}</span>
-                    <span class="total-price1">{{product.total_price}} تومان</span>
+                    <span class="unit-price">{{product.unit_price|intcomma}}</span>
+                    <span class="total-price1">{{product.total_price|intcomma}} تومان</span>
                 
                 {% else %}
                     <span class="total-price2">{{product.total_price}} تومان</span>
@@ -144,7 +145,8 @@
 
             <div class="Cart"></div>
         </div>
-    </div>
+
+</div>
 
 
 {% comment %} محصولات مشابه {% endcomment %}
@@ -214,7 +216,7 @@
                 <textarea rows="5" cols="30" name="comment" class="commentField" placeholder='نظر شما در مورد این محصول ...'></textarea>
                 
                 <div class='BTNComment'>
-                    <button type="submit">ارسال نظر</button>
+                    <button type="submit">ثبت نظر</button>
                 </div>
             </form>
         </div>
@@ -234,11 +236,35 @@
                 </div>
                 
                 <div class='UserCommentFooter'>
-                    <span><i class="bi bi-reply"></i></span>
+                    <span class='ReplayIcon' ><i class="bi bi-reply"></i></span>
                     <a style="text-decoration:none" href="{% url 'home:likeComment_show' comm.id %}"><span style='color:black' ><i class="bi bi-hand-thumbs-up"></i></span></a>
                     <span style='margin-right:-1px'>{{comm.total_like}}</span>
                 </div>
+                <div class="ReplayContainer">
+                    <form method="post" action="{% url 'home:replayComment_show' product.id comm.id%}">
+                        {% csrf_token %}
+                        <textarea rows="4" cols="30" name="comment" class="ReplayField" placeholder='پاسخ...'></textarea>
+                        
+                        <div class='BTNReplay'>
+                            <button type="submit">ثبت پاسخ</button>
+                        </div>
+                    </form>
+                </div>
+                
 
+
+                        {% for co in comm.replya_rel.all %}
+                        <div class="showReplayItem">
+                            <div class='infoUserReplay'>
+                                <h4>{{co.user.username}}</h4>
+                                <h5 style='direction:ltr;text-align: center;"'>{{co.create|naturaltime}}</h5>
+                            </div>
+                            <div class='UserReplay'>
+                                {{co.comment}}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    
             </div>
             {% endfor %} 
         </div>
@@ -305,6 +331,19 @@
                 })
             })
         })
+
+
+
+        let replayIcon = document.querySelectorAll('.ReplayIcon')
+        
+        replayIcon.forEach((item,index)=>{
+            item.addEventListener('click',()=>{
+                
+                let replay = document.querySelectorAll('.ReplayContainer')
+                replay[index].classList.toggle('activeShow')
+            })
+        })
+
     tippy('#like1', {
         content: 'این محصول را پسندیده‌ام',
       });
@@ -318,6 +357,12 @@
 
     tippy('#fav2', {
         content: 'اضافه کردن به علاقه‌مندی‌ها',
+      });
+    tippy('.ReplayShow', {
+        content: 'مشاهده پاسخ‌ها',
+      });
+    tippy('.ReplayIcon', {
+        content: 'پاسخ',
       });
 </script>
 {% endblock body %}

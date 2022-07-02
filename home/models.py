@@ -131,6 +131,8 @@ class VarientProduct(models.Model):
     total_price = models.BigIntegerField()
     #تخفیف
     discount = models.IntegerField(verbose_name='تخفیف',blank=True,null=True)
+    #تعداد
+    amount = models.IntegerField(default = 0,verbose_name='تعداد موجودی محصول',blank=True,null=True)
     #زمان آپدیت محصول
     update = models.DateTimeField(auto_now=True,verbose_name='تاریخ به روز رسانی')
     #عکس محصولات
@@ -166,7 +168,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     comment = models.TextField(blank=True,null=True)
-    rate = models.IntegerField(default=1)
+    rate = models.IntegerField(default=1,blank=True,null=True)
     is_replay = models.BooleanField(default=False)
     replay = models.ForeignKey('self',on_delete=models.CASCADE,related_name='replya_rel',blank=True,null=True)
     create = models.DateTimeField(auto_now_add=True)
@@ -183,3 +185,8 @@ class Comment(models.Model):
     
 
     
+# مدل برای شلوار
+# class CategoryPants(models.Model):
+#     name = models.CharField(max_length=50,verbose_name='دسته بندی')
+#     is_sub_cat = models.BooleanField(default=False,blank=True,null=True)
+#     sub_category = models.ForeignKey('self',on_delete=models.CASCADE,blank=True,null=True,related_name='sub_cat')
